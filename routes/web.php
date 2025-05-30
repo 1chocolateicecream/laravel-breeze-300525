@@ -26,4 +26,25 @@ Route::delete('posts/{post}/destroy', [PostController::class, 'destroy'])->name(
 Route::get('posts/create', [PostController::class, 'create'])->name('post.create');
 Route::get('posts/{post}', [PostController::class, 'show'])->name('post.show');
 
+Route::get('/alg', function () {
+    function bubbleSort(array &$arr) {
+    $n = count($arr);
+    for ($i = 0; $i < $n - 1; $i++) {
+        for ($j = 0; $j < $n - $i - 1; $j++) {
+            if ($arr[$j] > $arr[$j + 1]) {
+                $banana = $arr[$j];
+                $arr[$j] = $arr[$j + 1];
+                $arr[$j + 1] = $banana;
+            }
+        }
+    }
+}
+
+$blackanaconda = [10,50,30,22,69,8];
+
+bubbleSort($blackanaconda);
+
+print_r($blackanaconda);
+});
+
 require __DIR__.'/auth.php';
