@@ -18,5 +18,7 @@
                 </div>
             </li>
         @endforeach
+
+        @include('layouts.footer')
     </ul>
 </x-app-layout>
