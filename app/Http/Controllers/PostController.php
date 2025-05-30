@@ -13,7 +13,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('posts.index', ['posts' => $posts]);
+        return view('post.index', ['posts' => $posts]);
     }
 
     /**
@@ -21,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('post.create');
     }
 
     /**
@@ -35,8 +35,8 @@ class PostController extends Controller
         ]);
 
         $post = Post::create([
-            'title' => title,
-            'content' => content
+            'title' => $request->title,
+            'content' => $request->content
         ]);
 
         return redirect()->route('post.show', $post)->with('status_code', 'Post created successfully.');
@@ -47,7 +47,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
+        return view('post.show', ['post' => $post]);
     }
     
     /**
@@ -55,7 +55,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posts.edit', ['post' => $post]);
+        return view('post.edit', ['post' => $post]);
     }
 
     /**
